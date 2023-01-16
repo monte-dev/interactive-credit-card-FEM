@@ -1,5 +1,5 @@
 /* VARIABLES */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
 :root {
   --active-fields: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
   --error-fields: hsl(0, 100%, 66%);
@@ -9,80 +9,131 @@
   --dark-grayish-violet: hsl(279, 6%, 55%);
   --very-dark-violet: hsl(278, 68%, 11%);
 
-  --main-font: 'Space Grotesk', sans-serif;
+  --main-font: "Space Grotesk", sans-serif;
 }
 /* GENERAL */
 
 body {
-    font-size: 18px;
-    font-family: var(--main-font);
-    min-height: 100vh;
+  font-size: 18px;
+  font-family: var(--main-font);
+  min-height: 100vh;
 }
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 .wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 /* LEFT */
 .left-section {
-    position: relative;
-    background-image:url(/images/bg-main-desktop.png);
-    min-height: 100vh;
-    background-size: cover;
-    width: 30%;
+  position: relative;
+  background-image: url(/images/bg-main-desktop.png);
+  min-height: 100vh;
+  background-size: cover;
+  width: 30%;
 }
 .cards-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    transform: translate(-50%, -50%);
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  gap: 2rem;
 }
+/* FRONT CARD */
+.front-card,
+.back-card {
+  background-repeat: no-repeat;
+  position: relative;
+  width: 447px;
+  height: 245px;
+  box-shadow: 8px 8px 20px 10px rgba(0, 0, 0, 0.15);
+  color: var(--white);
+  border-radius: 10px;
+}
+.front-card {
+  margin-right: 160px;
+  background-image: url(/images/bg-card-front.png);
+}
+.card-logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+}
+#i-number {
+  position: absolute;
+  top: 140px;
+  left: 30px;
+  font-size: 34px;
+}
+#i-name {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    font-size: 16px;
+}
+#i-date {
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    font-size: 16px;
+}
+/* BACK CARD */
+.back-card {
+  background-image: url(/images/bg-card-back.png);
+}
+#i-cvc {
+    position: absolute;
+    top: 110px;
+    right: 55px;
+    
+}
+
+
 /* RIGHT */
 .right-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 100vh;
 }
 /* FORM */
 .right-section form {
-    display: flex;
-    flex-direction: column;
-    width: 320px;
-    margin-left: 120px;
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  margin-left: 120px;
 }
 .right-section form label {
-    font-size: 12px;
-    text-transform: uppercase;
-    padding-bottom: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding-bottom: 4px;
 }
 .right-section input {
-    padding: 8px;
-    border-radius: 8px;
-    outline: none;
-    border: 2px solid var(--light-grayish-violet);
-    margin-bottom: 0.75rem;
+  padding: 8px;
+  border-radius: 8px;
+  outline: none;
+  border: 2px solid var(--light-grayish-violet);
+  margin-bottom: 0.75rem;
 }
 .card-info {
-    padding-bottom: 1.25rem;
-    display: flex;
+  padding-bottom: 1.25rem;
+  display: flex;
 }
-.card-info-left, .card-info-right {
-    width: 50%;
+.card-info-left,
+.card-info-right {
+  width: 50%;
 }
 .card-info-left input {
-    width: 45%
+  width: 45%;
 }
 /* remove arrows from input number fields */
 input::-webkit-outer-spin-button,
@@ -90,14 +141,14 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 #submit-btn {
-    background-color: var(--very-dark-violet);
-    color: var(--white);
-    padding: 0.75rem;
-    border-radius: 8px;
-    font-size: 16px;
-    border: none;
+  background-color: var(--very-dark-violet);
+  color: var(--white);
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
 }

@@ -13,17 +13,22 @@
 
 <body>
   <div class="wrapper">
+    <!-- Interactive card component -->
     <section class="left-section">
       <div class="cards-container">
         <div class="front-card">
-          <img src="images/bg-card-front.png" alt="payment card front">
+          <img class="card-logo" src="/images/card-logo.svg" alt="card merchant logo">
+          <span id="i-number">0000 0000 0000 0000</span>
+          <span id="i-name">Jane Appleseed</span>
+          <span id="i-date"><span id="i-month">00</span>/<span id="i-year">00</span></span>
         </div>
         <div class="back-card">
-          <img src="images/bg-card-back.png" alt="payment card back">
+          <span id="i-cvc">000</span>
         </div>
       </div>
     </section>
     <main class="right-section">
+      <!-- Card input form -->
       <form>
         <label for="card name">Cardholder Name</label>
         <input type="text" name="card name" id="card-name" placeholder="e.g. Jane Appleseed">
