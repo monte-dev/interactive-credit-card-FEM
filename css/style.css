@@ -121,7 +121,7 @@ body {
   border-radius: 8px;
   outline: none;
   border: 1px solid var(--light-grayish-violet);
-  cursor: pointer;
+  cursor: text;
 }
 .right-section input:hover {
     border-color: var(--active-fields);
@@ -154,6 +154,7 @@ input::-webkit-inner-spin-button {
 }
 input[type="number"] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 #submit-btn {
   background-color: var(--very-dark-violet);
@@ -163,6 +164,7 @@ input[type="number"] {
   font-size: 16px;
   border: none;
   margin-top: 1.5rem;
+  cursor: pointer;
 }
 .right-section .error {
     border: 1px solid var(--error-fields);

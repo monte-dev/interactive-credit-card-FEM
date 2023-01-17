@@ -20,7 +20,9 @@
           <img class="card-logo" src="./images/card-logo.svg" alt="card merchant logo">
           <span id="i-number">0000 0000 0000 0000</span>
           <span id="i-name">Jane Appleseed</span>
-          <span id="i-date"><span id="i-month">00</span>/<span id="i-year">00</span></span>
+          <span id="i-date">
+            <span id="i-month">00</span>/<span id="i-year">00</span>
+          </span>
         </div>
         <div class="back-card">
           <span id="i-cvc">000</span>
@@ -31,20 +33,19 @@
       <!-- Card input form -->
       <form>
         <label for="card name">Cardholder Name</label>
-        <input type="text" name="card name" id="card-name" placeholder="e.g. Jane Appleseed">
+        <input type="text" name="card name" id="card-name" placeholder="e.g. Jane Appleseed" autocomplete="cc-name">
         <label for="card number">Card Number</label>
-        <input type="tel" name="card number" id="card-number" placeholder="e.g. 1234 5678 9123 0000"
-          pattern="[0-9\s]{13,19}" maxlength="19" autocomplete="cc-number">
-
+        <input type="number" name="card number" id="card-number" placeholder="e.g. 1234 5678 9123 0000"
+          autocomplete="cc-number">
         <div class="card-info">
           <div class="card-info-left">
             <label for="card date">Exp. Date (MM/YY)</label>
-            <input type="number" name="card date" id="card-month" placeholder="MM" min="1" max="12">
-            <input type="number" name="card date" id="card-year" placeholder="YY" min="23" max="36">
+            <input type="number" name="card date" id="card-month" placeholder="MM" autocomplete="cc-exp-month">
+            <input type="number" name="card date" id="card-year" placeholder="YY" autocomplete="cc-exp-year">
           </div>
           <div class="card-info-right">
             <label for="card cvc">CVC</label>
-            <input type="number" name="card cvc" id="card-cvc" placeholder="e.g. 123" min="000" max="999">
+            <input type="number" name="card cvc" id="card-cvc" placeholder="e.g. 123" autocomplete="cc-csc">
           </div>
         </div>
 
