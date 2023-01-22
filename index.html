@@ -32,20 +32,19 @@
     <main class="right-section">
       <!-- Card input form -->
       <form>
-        <label for="card name">Cardholder Name</label>
-        <input type="text" name="card name" id="card-name" placeholder="e.g. Jane Appleseed" autocomplete="cc-name">
-        <label for="card number">Card Number</label>
-        <input type="number" name="card number" id="card-number" placeholder="e.g. 1234 5678 9123 0000"
-          autocomplete="cc-number">
+        <label for="card-name">Cardholder Name</label>
+        <input type="text" name="card name" id="card-name" placeholder="e.g. Jane Appleseed">
+        <label for="card-number">Card Number</label>
+        <input name="card number" id="card-number" placeholder="e.g. 1234 5678 9123 0000" type="text">
         <div class="card-info">
           <div class="card-info-left">
             <label for="card date">Exp. Date (MM/YY)</label>
-            <input type="number" name="card date" id="card-month" placeholder="MM" autocomplete="cc-exp-month">
-            <input type="number" name="card date" id="card-year" placeholder="YY" autocomplete="cc-exp-year">
+            <input type="text" name="card date" id="card-month" placeholder="MM" maxlength="2">
+            <input type="text" name="card date" id="card-year" placeholder="YY" maxlength="2">
           </div>
           <div class="card-info-right">
-            <label for="card cvc">CVC</label>
-            <input type="number" name="card cvc" id="card-cvc" placeholder="e.g. 123" autocomplete="cc-csc">
+            <label for="card-cvc">CVC</label>
+            <input type="text" id="card-cvc" placeholder="e.g. 123" maxlength="3">
           </div>
         </div>
 
