@@ -1,18 +1,18 @@
 // cards elements
-const cardNumber = document.getElementById("i-number");
-const cardName = document.getElementById("i-name");
-const cardDate = document.getElementById("i-date");
-const cardMonth = document.getElementById("i-month");
-const cardYear = document.getElementById("i-year");
-const cardCvc = document.getElementById("i-cvc");
+const cardNumber = document.querySelector("#i-number");
+const cardName = document.querySelector("#i-name");
+const cardDate = document.querySelector("#i-date");
+const cardMonth = document.querySelector("#i-month");
+const cardYear = document.querySelector("#i-year");
+const cardCvc = document.querySelector("#i-cvc");
 // form elements
-const nameInput = document.getElementById("card-name");
-const numberInput = document.getElementById("card-number");
-const monthInput = document.getElementById("card-month");
-const yearInput = document.getElementById("card-year");
-const cvcInput = document.getElementById("card-cvc");
-const formDate = document.getElementById("card-info-left");
-const submitBtn = document.getElementById("submit-btn");
+const nameInput = document.querySelector("#card-name");
+const numberInput = document.querySelector("#card-number");
+const monthInput = document.querySelector("#card-month");
+const yearInput = document.querySelector("#card-year");
+const cvcInput = document.querySelector("#card-cvc");
+const formDate = document.querySelector("#card-info-left");
+const submitBtn = document.querySelector("#submit-btn");
 const errorEl = document.createElement("div");
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -32,7 +32,15 @@ function handleInputs() {
   });
 
   nameInput.addEventListener("input", (event) => {
-    cardName.innerHTML = event.target.value;
+    if (event.target.value.length > 1 && event.target.value.includes(" ")) {
+      cardName.innerHTML = event.target.value
+      errorEl.innerHTML = "";
+      nameInput.classList.remove("error")
+    }
+    else {
+    errorHandling(nameInput)
+
+    }
   });
   // Month input handling
   monthInput.addEventListener("keypress", (event) => {
@@ -122,8 +130,17 @@ function handleInputs() {
   const errorHandling = function (errorInput) {
     switch (errorInput) {
       case nameInput:
-        errorInput.classList.add("error")
-        nameInput.appendChild(errorEl)
+        errorInput.classList.add("error");
+        nameInput.parentNode.insertBefore(errorEl, nameInput.nextSibling);
+        errorEl.classList.add("error-message");
+        errorEl.innerHTML = "Please insert name"
+        break;
+        case numberInput:
+          errorInput.classList.add("error");
+          numberInput.parentNode.insertBefore(errorEl, nameInput.nextSibling);
+          errorEl.classList.add("error-message");
+          errorEl.innerHTML = "Please insert valid card format"
+          break;
       case monthInput:
       case yearInput:
         errorInput.classList.add("error");
