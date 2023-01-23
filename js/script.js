@@ -18,26 +18,56 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function handleInputs() {
-  nameInput.oninput = () => {
-    cardName.innerText = nameInput.value;
-  };
-
-  numberInput.oninput = () => {
-    cardNumber.innerHTML = numberInput.value;
-  };
-  monthInput.addEventListener("keypress", (event) => {
-    if (event.code < "Digit0" || event.code > "Digit9") {
+  nameInput.addEventListener("keypress", (event) => {
+    if (
+      !(event.code.startsWith("Key") && event.code.length === 4) &&
+      event.code !== "Quote" &&
+      event.code !== "Space"
+    ) {
       event.preventDefault();
-    } else {
+    }
+  });
+
+  nameInput.addEventListener("input", (event) => {
+    cardName.innerHTML = event.target.value;
+  });
+  monthInput.addEventListener("keypress", (event) => {
+    if (
+      !(
+        (event.code >= "Digit0" && event.code <= "Digit9") ||
+        (event.code >= "Numpad0" && event.code <= "Numpad9")
+      )
+    ) {
+      event.preventDefault();
+    }
+  });
+  monthInput.addEventListener("input", (event) => {
+    if (event.target.value.length > 2) {
+      event.target.value = event.target.value.slice(0, 2);
+    }
+    if (
+      parseInt(event.target.value) >= 1 &&
+      parseInt(event.target.value) <= 12
+    ) {
       cardMonth.innerHTML = event.target.value;
     }
   });
 
   yearInput.addEventListener("keypress", (event) => {
-    if (event.code < "Digit0" || event.code > "Digit9") {
+    if (
+      !(
+        (event.code >= "Digit0" && event.code <= "Digit9") ||
+        (event.code >= "Numpad0" && event.code <= "Numpad9")
+      )
+    ) {
       event.preventDefault();
-    } else {
+    }
+  });
+  yearInput.addEventListener("input", (event) => {
+    if (event.target.value.length <= 2) {
       cardYear.innerHTML = event.target.value;
+    } else {
+      event.target.value = event.target.value.slice(0, 2);
     }
   });
 
@@ -45,9 +75,14 @@ function handleInputs() {
     // only allow numbers as input
     if (event.code < "Digit0" || event.code > "Digit9") {
       event.preventDefault();
-    } else {
-      //show input field on the card
-      cardCvc.innerHTML = event.target.value;
-    }
+    } 
   });
+  cvcInput.addEventListener("input", (event) => {
+    if (event.target.value.length <= 3) {
+      cardCvc.innerHTML = event.target.value;
+    } 
+    else {
+      event.target.value = event.target.value.slice(0,3)
+    }
+  })
 }
