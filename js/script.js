@@ -6,6 +6,7 @@ const cardMonth = document.querySelector("#i-month");
 const cardYear = document.querySelector("#i-year");
 const cardCvc = document.querySelector("#i-cvc");
 // form elements
+const form = document.getElementById("cc-form");
 const nameInput = document.querySelector("#card-name");
 const numberInput = document.querySelector("#card-number");
 const monthInput = document.querySelector("#card-month");
@@ -16,11 +17,16 @@ const submitBtn = document.querySelector("#submit-btn");
 const errorEl = document.createElement("div");
 
 document.addEventListener("DOMContentLoaded", function () {
+  let inputs = document.querySelectorAll("input");
+  inputs.forEach((input) => (input.value = ""));
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+
   handleInputs();
 });
-
 function handleInputs() {
-  // name input handling
+  // name input field handling
   nameInput.addEventListener("keypress", (event) => {
     if (
       !(event.code.startsWith("Key") && event.code.length === 4) &&
@@ -30,16 +36,14 @@ function handleInputs() {
       event.preventDefault();
     }
   });
-
   nameInput.addEventListener("input", (event) => {
+    cardName.innerHTML = event.target.value;
     if (event.target.value.length > 1 && event.target.value.includes(" ")) {
-      cardName.innerHTML = event.target.value
+      cardName.innerHTML = event.target.value;
       errorEl.innerHTML = "";
-      nameInput.classList.remove("error")
-    }
-    else {
-    errorHandling(nameInput)
-
+      nameInput.classList.remove("error");
+    } else {
+      errorHandling(nameInput);
     }
   });
   // Month input handling
@@ -133,14 +137,14 @@ function handleInputs() {
         errorInput.classList.add("error");
         nameInput.parentNode.insertBefore(errorEl, nameInput.nextSibling);
         errorEl.classList.add("error-message");
-        errorEl.innerHTML = "Please insert name"
+        errorEl.innerHTML = "Please insert name";
         break;
-        case numberInput:
-          errorInput.classList.add("error");
-          numberInput.parentNode.insertBefore(errorEl, nameInput.nextSibling);
-          errorEl.classList.add("error-message");
-          errorEl.innerHTML = "Please insert valid card format"
-          break;
+      case numberInput:
+        errorInput.classList.add("error");
+        numberInput.parentNode.insertBefore(errorEl, nameInput.nextSibling);
+        errorEl.classList.add("error-message");
+        errorEl.innerHTML = "Please insert valid card format";
+        break;
       case monthInput:
       case yearInput:
         errorInput.classList.add("error");

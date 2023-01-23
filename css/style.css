@@ -123,8 +123,10 @@ body {
   border: 1px solid var(--light-grayish-violet);
   cursor: text;
 }
-.right-section input:hover {
+.right-section input:hover,
+.right-section input:focus {
     border-color: var(--active-fields);
+
 }
 input:-moz-placeholder {
     cursor: pointer;
