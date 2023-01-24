@@ -46,6 +46,32 @@ function handleInputs() {
       errorHandling(nameInput);
     }
   });
+  numberInput.addEventListener("keypress", (event) => {
+     if (
+      !(
+        (event.code >= "Digit0" && event.code <= "Digit9") ||
+        (event.code >= "Numpad0" && event.code <= "Numpad9")
+      )
+    ) {
+      event.preventDefault();    
+    }
+  });
+  numberInput.maxLength = 19
+  numberInput.addEventListener("input", (event)=>{
+    let inputValue = event.target.value;
+    // format number input to 0000 0000 0000 0000
+    inputValue = inputValue.replace(/\D/g, "").replace(/(\d{4})/g, "$1 ").trim();
+    event.target.value = inputValue;
+    cardNumber.innerHTML = inputValue;
+    if(event.target.value.length < 19){
+      console.log('test');
+      errorHandling(numberInput)
+      
+    } else {
+      errorEl.innerHTML = "";
+      numberInput.classList.remove("error");
+    }
+  })
   // Month input handling
   monthInput.addEventListener("keypress", (event) => {
     if (
@@ -141,7 +167,7 @@ function handleInputs() {
         break;
       case numberInput:
         errorInput.classList.add("error");
-        numberInput.parentNode.insertBefore(errorEl, nameInput.nextSibling);
+        numberInput.parentNode.insertBefore(errorEl, numberInput.nextSibling);
         errorEl.classList.add("error-message");
         errorEl.innerHTML = "Please insert valid card format";
         break;
