@@ -14,9 +14,6 @@
 # Avoid your project being littered with annoying .DS_Store files!
 .DS_Store
 .prettierignore
-style-guide.md
-README.md
-README-template.md
 active-states.jpg
 complete-state-desktop.jpg
 complete-state-mobile.jpg
